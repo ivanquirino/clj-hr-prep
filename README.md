@@ -1,6 +1,6 @@
 # clj-hr-prep
 
-HackerHank preparation exercises in Clojure, with tests.
+HackerRank preparation exercises in Clojure, with tests.
 
 
 ## License
