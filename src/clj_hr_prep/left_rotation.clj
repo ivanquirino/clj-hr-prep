@@ -5,8 +5,7 @@
 (def input3 {:a [33 47 70 37 8 53 13 93 71 72 51 100 60 87 97] :d 13})
 
 (defn rotateLeftOnce [a]
-  (conj (vec (rest a)) (first a)))
-
+  (conj (subvec a 1) (first a)))
 
 ; HackerRank asks to return the updated array to be printed as a single line of space-separated integers,
 ; but if we do that, it fails. Just returning the array works.
@@ -16,3 +15,9 @@
       v
       (recur (inc i) (rotateLeftOnce v)))))
 
+(defn rotLeft2 [a d]
+  (if (= d (count a))
+    a
+    (let [part1 (subvec a 0 d)
+          part2 (subvec a d)]
+      (into part2 part1))))
