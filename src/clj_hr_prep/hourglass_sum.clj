@@ -31,12 +31,13 @@
                          [(subvec (arr i) j (+ j 3))
                           ((arr (+ i 1)) (+ j 1))
                           (subvec (arr (+ i 2)) j (+ j 3))]))]
-    (loop [coordsList coords sums []]
+    (loop [coordsList coords maxSum -63]
       (if (empty? coordsList)
-        (apply max sums)
+        maxSum
         (let [coord (first coordsList)
               i (coord 0)
               j (coord 1)
               hourGlass (getHourglass i j arr)
-              sum (apply + hourGlass)]
-          (recur (rest coordsList) (conj sums sum)))))))
+              sum (apply + hourGlass)
+              nextMax (if (> sum maxSum) sum maxSum)]
+          (recur (rest coordsList) nextMax))))))
