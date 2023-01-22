@@ -1,10 +1,13 @@
 (ns clj-hr-prep.core
+  (:require [clj-hr-prep.ransom-note :refer :all])
   (:gen-class))
 
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (println "Hello, World!"))
+  (doseq [input [input0 input1 input2]]
+    (let [{m :m n :n} input]
+      (println m n (checkMagazine m n)))))
 
 ; warmup exercises
 
@@ -40,8 +43,3 @@
       numJumps
       (let [jump (if (= 1 (get c (+ i 2))) 1 2)]
         (recur (+ i jump) (+ 1 numJumps))))))
-
-; hourglass sum
-
-
-
