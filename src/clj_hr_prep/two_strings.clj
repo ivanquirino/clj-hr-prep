@@ -1,6 +1,7 @@
 (ns clj-hr-prep.two-strings)
 
 (defn twoStringsBoolean [s1 s2]
+  "https://www.hackerrank.com/challenges/two-strings/problem"
   (let [s1map (reduce #(assoc! %1 %2 true) (transient {}) s1)]
     (reduce
       (fn [_ value] (if (get s1map value false)

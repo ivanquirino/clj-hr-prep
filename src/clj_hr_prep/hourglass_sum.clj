@@ -25,6 +25,7 @@
    [0 0 1 2 4 0]])
 
 (defn hourglassSum [arr]
+  "https://www.hackerrank.com/challenges/2d-array/problem"
   (let [coords (for [i (range 4) j (range 4)] [i j])
         getHourglass (fn [i j arr]
                        (flatten

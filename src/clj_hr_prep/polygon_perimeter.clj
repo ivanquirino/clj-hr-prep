@@ -14,6 +14,7 @@
     (Math/sqrt (+ (* a a) (* b b)))))
 
 (defn perimeter [points]
+  "https://www.hackerrank.com/challenges/lambda-march-compute-the-perimeter-of-a-polygon/problem"
   (let [segments (getSegments points)
         segmentsLength (for [s segments] (calcSegmentLength s))]
     (reduce + segmentsLength)))
