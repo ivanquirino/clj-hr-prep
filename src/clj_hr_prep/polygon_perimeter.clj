@@ -13,8 +13,9 @@
         [a b] [(Math/abs (- x2 x1)) (Math/abs (- y2 y1))]]
     (Math/sqrt (+ (* a a) (* b b)))))
 
-(defn perimeter [points]
+(defn perimeter
   "https://www.hackerrank.com/challenges/lambda-march-compute-the-perimeter-of-a-polygon/problem"
+  [points]
   (let [segments (getSegments points)
         segmentsLength (for [s segments] (calcSegmentLength s))]
     (reduce + segmentsLength)))

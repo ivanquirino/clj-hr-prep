@@ -26,7 +26,9 @@
         (+ a (Math/abs (- c1 c2)))))
     0 common))
 
-(defn makeAnagram [a b]
+(defn makeAnagram
+  "https://www.hackerrank.com/challenges/ctci-making-anagrams/problem?"
+  [a b]
   (let [[f1 f2] (getFreqs a b)
         common (getCommon a b)
         notCommonF1 (countRemoveNotCommon common f1)

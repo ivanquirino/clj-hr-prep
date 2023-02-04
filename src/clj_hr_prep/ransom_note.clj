@@ -26,8 +26,9 @@
                  note)]
     (get result 0)))
 
-(defn checkMagazine [magazine note]
+(defn checkMagazine
   "https://www.hackerrank.com/challenges/ctci-ransom-note/problem"
+  [magazine note]
   (println
     (if (checkMagazineBoolean magazine note)
       "Yes"

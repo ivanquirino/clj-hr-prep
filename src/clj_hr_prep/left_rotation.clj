@@ -15,8 +15,9 @@
       v
       (recur (inc i) (rotateLeftOnce v)))))
 
-(defn rotLeft2 [a d]
+(defn rotLeft2
   "https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem"
+  [a d]
   (if (= d (count a))
     a
     (let [part1 (subvec a 0 d)
