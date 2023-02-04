@@ -5,9 +5,7 @@
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
-  (doseq [input [input0 input1 input2]]
-    (let [{m :m n :n} input]
-      (println m n (checkMagazine m n)))))
+  nil)
 
 ; warmup exercises
 
