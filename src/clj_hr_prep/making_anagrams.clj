@@ -7,9 +7,6 @@
 (def input14 ["tttttttttttttttttttttttttttttttttttttsssssssssssssssss"
               "sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss"])
 
-(defn getFreqs [a b]
-  [(frequencies a) (frequencies b)])
-
 (defn getCommon [a b]
   (set/intersection (set a) (set  b)))
 
@@ -29,7 +26,7 @@
 (defn makeAnagram
   "https://www.hackerrank.com/challenges/ctci-making-anagrams/problem?"
   [a b]
-  (let [[f1 f2] (getFreqs a b)
+  (let [f1 (frequencies a) f2 (frequencies b)
         common (getCommon a b)
         notCommonF1 (countRemoveNotCommon common f1)
         notCommonF2 (countRemoveNotCommon common f2)
