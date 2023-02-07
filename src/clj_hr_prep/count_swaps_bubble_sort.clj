@@ -27,9 +27,9 @@
         count (:c result)
         xs (:is result)
         p0 (first xs)
-        plast (peek xs)
+        pLast (peek xs)
         messages [(format "Array is sorted in %d swaps." count)
                   (str "First Element: " p0)
-                  (str "Last Element: " plast)]]
+                  (str "Last Element: " pLast)]]
     (doseq [message messages]
       (println message))))
