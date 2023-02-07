@@ -10,7 +10,9 @@
           pairs
           (recur (conj pairs [p0 p1]) remain)))))
 
-(defn minimumAbsoluteDifference [arr]
+(defn minimumAbsoluteDifference
+  "https://www.hackerrank.com/challenges/minimum-absolute-difference-in-an-array/problem"
+  [arr]
   (let [sorted (sort arr)
         pairs (getPairs sorted)]
     (reduce
