@@ -30,7 +30,9 @@
           h-right (+ height (height-recur 1 (:right tree)))]
       (if (> h-right h-left) h-right h-left))))
 
-(defn get-height [tree]
+(defn get-height
+  "https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem"
+  [tree]
   (height-recur 0 tree))
 
 (defn run-inputs []
