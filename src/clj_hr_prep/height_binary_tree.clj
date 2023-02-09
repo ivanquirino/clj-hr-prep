@@ -7,33 +7,30 @@
              [4 1 8 10 9 3]])
 
 (defn leaf? [node]
-  (let [left (:left node) right (:right node)]
+  (let [{left :left right :right} node]
     (and (nil? left) (nil? right))))
 
 (defn insert
   ([value] {:value value, :left nil, :right nil})
-  ([root value]
+  ([tree value]
    (let [node (insert value)
-         {rootVal :value} root
-         insertKey (if (< value rootVal) :left :right)]
-     (if (nil? (insertKey root))
-       (assoc root insertKey node)
-       (assoc root insertKey (insert (insertKey root) value))))))
+         {treeVal :value} tree
+         insertKey (if (< value treeVal) :left :right)]
+     (cond (= value treeVal) tree
+           (nil? (insertKey tree)) (assoc tree insertKey node)
+           :else (assoc tree insertKey (insert (insertKey tree) value))))))
 
 (defn create-tree [values]
   (reduce insert (insert (first values)) (rest values)))
 
-(defn height-recur [height tree]
-  (if (leaf? tree)
-    (+ height 0)
-    (let [h-left (+ height (height-recur 1 (:left tree)))
-          h-right (+ height (height-recur 1 (:right tree)))]
-      (if (> h-right h-left) h-right h-left))))
-
 (defn get-height
   "https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem"
-  [tree]
-  (height-recur 0 tree))
+  ([tree] (get-height tree 0))
+  ([tree height]
+   (if (leaf? tree)
+     height
+     (max (get-height (:left tree) (inc height))
+          (get-height (:right tree) (inc height))))))
 
 (defn run-inputs []
   (map #(-> % create-tree get-height) inputs))
